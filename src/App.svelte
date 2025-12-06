@@ -109,6 +109,7 @@
   <main class="video-area">
     <video
       bind:this={videoElement}
+      controls
       style="max-width: 100%; max-height: 100%; background: black;"
     ></video>
   </main>
