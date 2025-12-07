@@ -1,24 +1,29 @@
-const { FusesPlugin } = require('@electron-forge/plugin-fuses');
-const { FuseV1Options, FuseVersion } = require('@electron/fuses');
+const { FusesPlugin } = require("@electron-forge/plugin-fuses");
+const { FuseV1Options, FuseVersion } = require("@electron/fuses");
+const path = require("path");
 
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: path.join(__dirname, "public", "icons", "app"), // use your ico base name
   },
+
   rebuildConfig: {},
+
   makers: [
     {
-      name: '@electron-forge/maker-squirrel',
+      name: "@electron-forge/maker-squirrel",
       config: {},
     },
     {
-      name: '@electron-forge/maker-zip',
-      platforms: ['win32'], // 只为 Windows 打包 ZIP
-    }
+      name: "@electron-forge/maker-zip",
+      platforms: ["win32"],
+    },
   ],
+
   plugins: [
     {
-      name: '@electron-forge/plugin-auto-unpack-natives',
+      name: "@electron-forge/plugin-auto-unpack-natives",
       config: {},
     },
 
