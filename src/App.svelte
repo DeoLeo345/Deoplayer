@@ -473,8 +473,9 @@
 </div>
 
 <style>
-  :global(html, body) {
+  :global(html, body, #app) {
     height: 100%;
+    width: 100%;
     margin: 0;
     overflow: hidden;
     background: #0c0f14;
@@ -486,6 +487,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    width: 100vw;
     overflow: hidden;
     background: radial-gradient(circle at 20% 20%, rgba(0, 162, 216, 0.2), transparent 25%),
                 radial-gradient(circle at 80% 10%, rgba(220, 56, 129, 0.15), transparent 20%),
@@ -516,9 +518,11 @@
 
   .content {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-rows: 1fr;
     height: calc(100vh - 54px);
     min-height: 0;
+    width: 100%;
     overflow: hidden;
     align-items: stretch;
   }
@@ -620,13 +624,19 @@
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.015);
     min-height: 0;
+    height: 100%;
+    flex: 1 1 auto;
+    width: 100%;
     overflow: hidden;
+    min-width: 0;
   }
 
   .video-shell {
     width: 100%;
     height: 100%;
     max-height: 100%;
+    min-height: 0;
+    min-width: 0;
     border-radius: 16px;
     background: linear-gradient(135deg, rgba(0, 162, 216, 0.14), rgba(11, 17, 26, 0.8));
     border: 1px solid rgba(255, 255, 255, 0.06);
@@ -641,7 +651,8 @@
     flex: 1;
     width: 100%;
     height: 100%;
-    min-height: 360px;
+    min-height: 0;
+    min-width: 0;
     background: #000;
     object-fit: contain;
     border: none;
